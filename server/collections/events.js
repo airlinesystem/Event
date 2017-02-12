@@ -1,4 +1,4 @@
-var db = require('../config');
+var db = require('../config-db');
 var Event = require('../model/event');
 
 var Events = new db.Collection();

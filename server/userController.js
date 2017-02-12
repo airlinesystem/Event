@@ -9,7 +9,14 @@ var jwt = require('jwt-simple');
 
 module.exports = {
 		signup:function (req,res) {
+      console.log(req.data)
+      console.log(req.body)
+      console.log(req.config)
+
+
+       
 		  var username  = req.body.username;
+      //console.log(username)
          // var password  = req.body.password;
           var email     = req.body.email;
           var eventtype = req.body.eventtype
@@ -28,15 +35,15 @@ module.exports = {
 
 	        })
 	        .then(function(newUser) {
-	          var token = jwt.encode(newUser, 'secret');
-	          response.json({token: token});
-	          response.status(200);
+	          // var token = jwt.encode(newUser, 'secret');
+	          // res.json({token: token});
+	          res.send(newUser);
 	        });
 	      }
 	  });
 	},
 
- signin : function(req,response) {
+ signin : function(req,res) {
     
   var email     = req.body.email; 
   var password  = req.body.password;

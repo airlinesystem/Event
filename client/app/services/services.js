@@ -21,13 +21,16 @@ angular.module('event.services', [])
   // };
 
   var userSignup = function (user) {
+  console.log(user)
     return $http({
       method: 'POST',
       url: '/api/signup',
       data: user
     })
     .then(function (resp) {
-      // return resp.data.token;
+      // return resp.data.token
+      console.log('in services')
+      console.log(resp)
        return resp
     });
   };

@@ -1,4 +1,4 @@
-var db = require('../config');
+var db = require('../config-db');
 
 var knex = require('knex');
 //var Sketch = require('../model/sketch.js');
