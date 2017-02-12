@@ -1,0 +1,31 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
+    "bookshelf": "^0.9.1",
+    "ejs": "^2.4.1",
+    "express": "^4.14.1",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.13.0",
+    "jwt-simple": "^0.5.1",
+    "knex": "^0.10.0",
+    "morgan": "^1.1.1",
+    "request": "^2.34.0",
+    "socket.io": "^1.4.5",
+    "sqlite3": "~3.1.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maherghnom/2017-02-mvp/issues"
+  },
+  "homepage": "https://github.com/maherghnom/2017-02-mvp#readme"
+}
