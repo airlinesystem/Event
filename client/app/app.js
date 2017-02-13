@@ -20,9 +20,16 @@ angular.module('event', [
     }).when('/orgProfile', {
       templateUrl: 'app/auth/orgProfile.html',
       controller: 'AuthController'
+    }).when('/signin', {
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController'
+    }).when('/userProfile', {
+      templateUrl: 'app/auth/userProfile.html',
+      controller: 'AuthController'
     })
 
-    .otherwise({redirectTo:'/userSignup'})
+
+    .otherwise({redirectTo:'/signin'})
 
     $locationProvider.hashPrefix('');
 }) 

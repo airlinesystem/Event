@@ -1,5 +1,6 @@
 var User = require('./model/user.js');
 var Users = require('./collections/users');
+// var jwtDecode = require('jwt-decode');
 //var Organizer = require('./model/organizer.js');
 //var Organizers = require('./collections/Organizers');
 //var Event = require('./model/event.js');
@@ -45,27 +46,35 @@ module.exports = {
 	},
 
  signin : function(req,res) {
+
     
   var email     = req.body.email; 
   var password  = req.body.password;
+  console.log(password)
   var hashedpass = util.hashpass(password,function(hash){
     hashedpass = hash;
   });
     new User({ email: email }).fetch().then(function(found) {
     if (found) {
+      // console.log(found)
       var userHash = found.get('password');
       util.comparePass(password,userHash,function(exist){
         if(exist){
        
-          response.status(200).send("done");
+          // res.status(200).send("done");
+          console.log(res.status)
           var token = jwt.encode(found, 'secret');
-          response.json({token: token});
+          res.json({token: token});
+          // var decoded = jwt.decode(token, 'secret')
+        //   var decoded = jwt.decode(token);
+          // console.log(decoded)
         }else{
-          response.send("password is not correct");
+          res.send("password is not correct");
         }
       })  
     } else {
-      response.status(200).send("Username is not exist");
+      // console.log("lklk")
+      res.status(200).send("Username is not exist");
       
       }
   });

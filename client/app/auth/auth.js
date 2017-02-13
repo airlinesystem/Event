@@ -8,17 +8,23 @@ angular.module('event.auth', [])
   $scope.org ={};
   $scope.event = {};
 
-  // $scope.signin = function () {
-  //   Auth.signin($scope.user)
-  //     .then(function (token) {
-  //       $window.localStorage.setItem('com.shortly', token);
-  //       $location.path('/links');
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // };
-
+   $scope.userSignin = function () {
+    Auth.userSignin($scope.user)
+      .then(function (token) {
+        $window.localStorage.setItem('com.event', token);
+        $location.path('/userProfile');
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+  $scope.OrgSignin= function(){
+    Auth.OrgSignin($scope.org)
+    .then(function(token){
+      $window.localStorage.setItem('com.event',token);
+      $location.path('/orgProfile')
+    })
+  }
   $scope.userSignup = function () {
     console.log(";dc;")
     var temp=$scope.user
@@ -50,7 +56,8 @@ angular.module('event.auth', [])
     console.log($scope.event)
     Auth.createEvent(temp)
       .then(function () {
-        // $window.localStorage.setItem('com.shortly', token);
+        // $window.localStorage.setItem('com.event', token);
+       console.log($window.localStorage.getItem('com.event'));
         $location.path('/orgProfile');
       })
       .catch(function (error) {
