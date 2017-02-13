@@ -22,11 +22,11 @@ console.log(req.email)
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
 		    hashedpass = hash;
 		  });
-	    new User({ orgName: orgName }).fetch().then(function(found) {
+	    new Organizer({ orgName: orgName }).fetch().then(function(found) {
 	    if (found) {
 	      res.status(200).send("this user is already existed");
 	    } else {
-	        Users.create({
+	        Organizers.create({
 	          orgName: orgName,
 	          password: hashedpass,
 	          email: email,
@@ -49,7 +49,7 @@ console.log(req.email)
   var hashedpass = util.hashpass(password,function(hash){
     hashedpass = hash;
   });
-    new User({ email: email }).fetch().then(function(found) {
+    new Organizer({ email: email }).fetch().then(function(found) {
     if (found) {
       var userHash = found.get('password');
       util.comparePass(password,userHash,function(exist){
