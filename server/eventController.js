@@ -4,14 +4,17 @@
 //var Organizers = require('./collections/Organizers');
 var Event = require('./model/event.js');
 var Events = require('./collections/events');
-var util = require('../lib/utility.js');
+//var util = require('../lib/utility.js');
 var jwt = require('jwt-simple');
 
 module.exports = {
-    signup:function (req,res) {
-    
-      console.log(req.username)
+    addEvent:function (req,res) {
+    console.log(req.body)
+    //console.log(req.body.id)
 
+      console.log(req.username)
+        ////>>>>>>>>>>
+      ////need to get org id from the token to know which org adding the event;
 
           var eventName     = req.body.eventName;
           var type          = req.body.type;
@@ -19,56 +22,31 @@ module.exports = {
           var date          = req.body.date;
           var cost          = req.body.cost;
           var organizerId   = req.body.organizerId
-      // var hashedpass = util.hashpass(req.body.password,function(hash){
-      //   hashedpass = hash;
-      // });
-      new User({ username: username }).fetch().then(function(found) {
+      
+      new Event({ eventName: eventName }).fetch().then(function(found) {
       if (found) {
-        res.status(200).send("this user is already existed");
+        res.status(200).send("this event is already existed");
       } else {
-          Users.create({
-            username: username,
-            password: hashedpass,
-            email: email,
-            eventtype: eventtype
+          Events.create({
+            eventName: eventName,
+            type: type,
+            location: location,
+            date: date,
+            cost: cost,
+            organizerId: organizerId
 
           })
-          .then(function(newUser) {
-            console.log(newUser)
-            // var token = jwt.encode(newUser, 'secret');
-            // res.json({token: token});
-            res.send(newUser);
+          .then(function(newEvent) {
+              console.log(newEvent)
+              //  var token = jwt.encode(newEvent, 'secret');
+              // res.json({token: token});
+            res.send(newEvent);
           });
         }
     });
   },
 
- signin : function(req,res) {
-    
-  var email     = req.body.email; 
-  var password  = req.body.password;
-  var hashedpass = util.hashpass(password,function(hash){
-    hashedpass = hash;
-  });
-    new User({ email: email }).fetch().then(function(found) {
-    if (found) {
-      var userHash = found.get('password');
-      util.comparePass(password,userHash,function(exist){
-        if(exist){
-       
-          response.status(200).send("done");
-          var token = jwt.encode(found, 'secret');
-          response.json({token: token});
-        }else{
-          response.send("password is not correct");
-        }
-      })  
-    } else {
-      response.status(200).send("Username is not exist");
-      
-      }
-  });
- }
+
 
 
 
