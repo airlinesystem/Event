@@ -1,0 +1,17 @@
+<div id='signup'>
+  <h1>User signin ..</h1>
+  <form name="signupForm"  >
+    <input placeholder="email"  type="text" ng-model='user.email'>
+    <input placeholder="password"  type="password" ng-model='user.password'>
+    <button ng-click="userSignin()">Signin</button>
+  </form>
+  <a href="#/userSignup">Don't have an account? <strong>Create one</strong> ...</a>
+    <h1>Organizer signin ..</h1>
+  <form name="signupForm"  >
+    <input placeholder="email"  type="text" ng-model='org.email'>
+    <input placeholder="password"  type="password" ng-model='org.password'>
+    <button ng-click="OrgSignin()">Signin</button>
+    <br>
+    <a href="#/OrgSignup">Don't have an account? <strong>Create one</strong> ...</a>
+  </form>
+</div>

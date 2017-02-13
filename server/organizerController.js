@@ -55,15 +55,16 @@ module.exports = {
       util.comparePass(password,userHash,function(exist){
         if(exist){
        
-          response.status(200).send("done");
+          // response.status(200).send("done");
           var token = jwt.encode(found, 'secret');
-          response.json({token: token});
+          res.json({token: token});
         }else{
-          response.send("password is not correct");
+          res.send("password is not correct");
         }
       })  
     } else {
-      response.status(200).send("OrgName is not exist");
+      console.log("not found")
+      res.status(200).send("OrgName is not exist");
       
       }
   });
