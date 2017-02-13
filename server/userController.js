@@ -1,9 +1,9 @@
 var User = require('./model/user.js');
 var Users = require('./collections/users');
-var Organizer = require('./model/organizer.js');
-var Organizers = require('./collections/Organizers');
-var Event = require('./model/event.js');
-var Events = require('./collections/events');
+//var Organizer = require('./model/organizer.js');
+//var Organizers = require('./collections/Organizers');
+//var Event = require('./model/event.js');
+//var Events = require('./collections/events');
 var util = require('../lib/utility.js');
 var jwt = require('jwt-simple');
 
