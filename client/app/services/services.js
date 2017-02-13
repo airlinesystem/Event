@@ -41,6 +41,7 @@ angular.module('event.services', [])
       data: org
     })
     .then(function (org) {
+      console.log(org)
        return org
     });
   };

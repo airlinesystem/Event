@@ -1,7 +1,8 @@
 angular.module('event', [
   'event.services',
   'event.auth',
-  'ngRoute'
+  'ngRoute',
+  'eventcontrler'
 ])
 .config(function ($routeProvider, $httpProvider,$locationProvider) {
   $routeProvider
@@ -16,6 +17,9 @@ angular.module('event', [
 
     .when('/OrgSignup', {
       templateUrl: 'app/auth/OrgSignup.html',
+      controller: 'AuthController'
+    }).when('/orgProfile', {
+      templateUrl: 'app/auth/orgProfile.html',
       controller: 'AuthController'
     })
 
