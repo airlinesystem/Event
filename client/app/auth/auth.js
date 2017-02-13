@@ -19,9 +19,10 @@ angular.module('event.auth', [])
 
   $scope.userSignup = function () {
     console.log(";dc;")
-    console.log($scope.user)
-    Auth.userSignup($scope.user)
-      .then(function (token) {
+    var temp=$scope.user
+    console.log(temp)
+    Auth.userSignup(temp)
+      .then(function () {
         // $window.localStorage.setItem('com.shortly', token);
         $location.path('/');
       })
