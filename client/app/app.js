@@ -9,10 +9,10 @@ angular.module('event', [
     //   templateUrl: 'app/auth/signin.html',
     //   controller: 'AuthController'
     // })
-    .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
+    .when('/userSignup', {
+      templateUrl: 'app/auth/userSignup.html',
       controller: 'AuthController'
     })
-    .otherwise({redirectTo:'/signup'})
+    .otherwise({redirectTo:'/userSignup'})
     $locationProvider.hashPrefix('');
 }) 
