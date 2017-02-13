@@ -44,6 +44,17 @@ angular.module('event.services', [])
        return org
     });
   };
+
+  var createEvent = function(event){
+  	return $http({
+  		method : 'POST',
+  		url :'api/orgProfile.html',
+  		data : event
+  	})
+  	.then(function(event){
+  		return event
+  	});
+  }
   
   // var isAuth = function () {
   //   return !!$window.localStorage.getItem('com.shortly');
@@ -58,7 +69,8 @@ angular.module('event.services', [])
   return {
     // signin: signin,
     userSignup: userSignup,
-    OrgSignup:OrgSignup
+    OrgSignup:OrgSignup,
+    createEvent : createEvent
     // isAuth: isAuth,
     // signout: signout
   };
