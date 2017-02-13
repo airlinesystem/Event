@@ -36,9 +36,9 @@ module.exports = {
 	        })
 	        .then(function(newUser) {
             console.log(newUser)
-	          // var token = jwt.encode(newUser, 'secret');
-	          // res.json({token: token});
-	          res.send(newUser);
+	          var token = jwt.encode(newUser, 'secret');
+	          res.json({token: token});
+	          //res.send(newUser);
 	        });
 	      }
 	  });
