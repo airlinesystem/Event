@@ -9,7 +9,12 @@ var jwt = require('jwt-simple');
 
 module.exports = {
 		signup:function (req,res) {
-      console.log(req.body)
+
+    
+      console.log(req.username)
+
+
+
 		  var username  = req.body.username;
       //console.log(username)
          // var password  = req.body.password;
@@ -30,6 +35,7 @@ module.exports = {
 
 	        })
 	        .then(function(newUser) {
+            console.log(newUser)
 	          // var token = jwt.encode(newUser, 'secret');
 	          // res.json({token: token});
 	          res.send(newUser);

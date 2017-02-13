@@ -27,11 +27,11 @@ angular.module('event.services', [])
       url: '/api/signup',
       data: user
     })
-    .then(function (resp) {
+    .then(function (user) {
       // return resp.data.token
       console.log('in services')
-      console.log(resp)
-       return resp
+      console.log(user)
+       return user
     });
   };
 
