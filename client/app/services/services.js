@@ -28,13 +28,23 @@ angular.module('event.services', [])
       data: user
     })
     .then(function (user) {
-      // return resp.data.token
       console.log('in services')
       console.log(user)
        return user
     });
   };
 
+  var OrgSignup = function(org){
+    return $http({
+      method: 'POST',
+      url: '/api/OrgSignup',
+      data: org
+    })
+    .then(function (org) {
+       return org
+    });
+  };
+  }
   // var isAuth = function () {
   //   return !!$window.localStorage.getItem('com.shortly');
   // };
