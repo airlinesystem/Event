@@ -9,20 +9,15 @@ var jwt = require('jwt-simple');
 
 module.exports = {
 		signup:function (req,res) {
-      console.log(req.data)
       console.log(req.body)
-      console.log(req.config)
-
-
-       
 		  var username  = req.body.username;
       //console.log(username)
          // var password  = req.body.password;
-          var email     = req.body.email;
+          var email  = req.body.email;
           var eventtype = req.body.eventtype
-		  var hashedpass = util.hashpass(req.body.password,function(hash){
-		    hashedpass = hash;
-		  });
+		      var hashedpass = util.hashpass(req.body.password,function(hash){
+		       hashedpass = hash;
+		     });
 	    new User({ username: username }).fetch().then(function(found) {
 	    if (found) {
 	      res.status(200).send("this user is already existed");
