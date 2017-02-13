@@ -24,7 +24,7 @@ angular.module('event.services', [])
   console.log(user)
     return $http({
       method: 'POST',
-      url: '/api/signup',
+      url: '/api/userSignup',
       data: user
     })
     .then(function (user) {

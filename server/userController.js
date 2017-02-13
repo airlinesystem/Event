@@ -8,7 +8,7 @@ var util = require('../lib/utility.js');
 var jwt = require('jwt-simple');
 
 module.exports = {
-		signup:function (req,res) {
+		userSignup:function (req,res) {
 
     
       console.log(req.username)

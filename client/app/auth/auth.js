@@ -5,6 +5,7 @@ angular.module('event.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.org ={};
 
   // $scope.signin = function () {
   //   Auth.signin($scope.user)
@@ -30,4 +31,18 @@ angular.module('event.auth', [])
         console.error(error);
       });
   };
+
+  $scope.OrgnizerSignup = function () {
+    var temp=$scope.org
+    console.log(temp)
+    Auth.OrgSignup(temp)
+      .then(function () {
+        // $window.localStorage.setItem('com.shortly', token);
+        $location.path('/');
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+
 });
