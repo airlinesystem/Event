@@ -44,7 +44,7 @@ angular.module('event.services', [])
        return org
     });
   };
-  }
+  
   // var isAuth = function () {
   //   return !!$window.localStorage.getItem('com.shortly');
   // };
@@ -57,7 +57,8 @@ angular.module('event.services', [])
 
   return {
     // signin: signin,
-    userSignup: userSignup
+    userSignup: userSignup,
+    OrgSignup:OrgSignup
     // isAuth: isAuth,
     // signout: signout
   };
