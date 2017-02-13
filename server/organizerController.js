@@ -10,9 +10,8 @@ var jwt = require('jwt-simple');
 module.exports = {
 		signup:function (req,res) {
     
-      console.log(req.orgName)
-
-console.log(req.email)
+      console.log(req.body)
+//console.log(req.email)
 
 		  var orgName  = req.body.orgName;
       //console.log(username)
@@ -24,7 +23,7 @@ console.log(req.email)
 		  });
 	    new Organizer({ orgName: orgName }).fetch().then(function(found) {
 	    if (found) {
-	      res.status(200).send("this user is already existed");
+	      res.status(200).send("this orgName is already existed");
 	    } else {
 	        Organizers.create({
 	          orgName: orgName,
@@ -32,11 +31,12 @@ console.log(req.email)
 	          email: email,
 
 	        })
-	        .then(function(newUser) {
-            console.log(newUser)
-	          // var token = jwt.encode(newUser, 'secret');
-	          // res.json({token: token});
-	          res.send(newUser);
+	        .then(function(newOrg) {
+            console.log(123)
+            console.log(newOrg.attributes.id)
+	           var token = jwt.encode(newOrg, 'secret');
+            res.json({token: token});
+	          //res.send(newOrg);
 	        });
 	      }
 	  });
