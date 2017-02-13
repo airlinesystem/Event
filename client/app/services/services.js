@@ -9,16 +9,17 @@ angular.module('event.services', [])
   // that JWT is then stored in localStorage as 'com.shortly'
   // after you signin/signup open devtools, click resources,
   // then localStorage and you'll see your token from the server
-  // var userSignin = function (user) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/api/users/signin',
-  //     data: user
-  //   })
-  //   .then(function (resp) {
-  //     return resp.data.token;
-  //   });
-  // };
+  var userSignin = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/api/userSignin',
+      data: user
+    })
+    .then(function (resp) {
+      console.log(resp.data.token)
+      return resp.data.token;
+    });
+  };
 
   var userSignup = function (user) {
   console.log(user)
@@ -33,7 +34,17 @@ angular.module('event.services', [])
        return user
     });
   };
-
+   var OrgSignin = function (org) {
+    return $http({
+      method: 'POST',
+      url: '/api/orgSignin',
+      data: org
+    })
+    .then(function (resp) {
+     
+      return resp.data.token;
+    });
+  };
   var OrgSignup = function(org){
     return $http({
       method: 'POST',
@@ -68,7 +79,8 @@ angular.module('event.services', [])
 
 
   return {
-    // signin: signin,
+    userSignin : userSignin ,
+    OrgSignin : OrgSignin,
     userSignup: userSignup,
     OrgSignup:OrgSignup,
     createEvent : createEvent
