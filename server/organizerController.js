@@ -12,7 +12,7 @@ module.exports = {
     
       console.log(req.orgName)
 
-
+console.log(req.email)
 
 		  var orgName  = req.body.orgName;
       //console.log(username)
