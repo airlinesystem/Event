@@ -36,7 +36,7 @@ module.exports = {
             console.log(newOrg.attributes.id)
 	           var token = jwt.encode(newOrg, 'secret');
             res.json({token: token});
-	          //res.send(newOrg);
+	          // res.send(newOrg);
 	        });
 	      }
 	  });

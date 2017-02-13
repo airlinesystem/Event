@@ -7,14 +7,15 @@
   </head>
   <body>
     <div>
-      <form name="Create event"  >
+      <form name="Create-event"  >
     <input placeholder="Event Name"  type='text' ng-model='event.eventName'>
     <input placeholder="Event type :music,sport or tech  "    type="text" ng-model='event.type'>
-    <input placeholder="Location" type="text" ng-model='event.Location'>
+    <input placeholder="Location" type="text" ng-model='event.location'>
+    <input placeholder="Date" type="text" ng-model='event.date'>
     <input placeholder="cost" type="text" ng-model='event.cost'>
     <button ng-click="CreateEvent()">Create</button>
   </form>
 </div>
     
-    <div ng-view></div>
+   
 </html>

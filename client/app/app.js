@@ -1,8 +1,7 @@
 angular.module('event', [
   'event.services',
   'event.auth',
-  'ngRoute',
-  'eventcontrler'
+  'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider,$locationProvider) {
   $routeProvider

@@ -48,7 +48,7 @@ angular.module('event.auth', [])
   $scope.CreateEvent = function () {
     var temp=$scope.event
     console.log($scope.event)
-    Auth.createEvent($scope.event)
+    Auth.createEvent(temp)
       .then(function () {
         // $window.localStorage.setItem('com.shortly', token);
         $location.path('/orgProfile');
