@@ -4,7 +4,7 @@ var knex = require('knex');
 
 
 var Event = db.Model.extend({
-	tableName: 'users',
+	tableName: 'events',
 	hasTimestamps: true,
 
 	organizer: function() {

@@ -12,7 +12,7 @@ module.exports = {
     console.log(req.body)
     //console.log(req.body.id)
 
-      console.log(req.username)
+      // console.log(req.username)
         ////>>>>>>>>>>
       ////need to get org id from the token to know which org adding the event;
 

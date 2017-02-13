@@ -49,7 +49,7 @@ angular.module('event.services', [])
   var createEvent = function(event){
   	return $http({
   		method : 'POST',
-  		url :'api/orgProfile.html',
+  		url :'api/orgProfile',
   		data : event
   	})
   	.then(function(event){
