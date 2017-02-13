@@ -6,6 +6,7 @@ angular.module('event.auth', [])
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
   $scope.org ={};
+  $scope.event = {};
 
   // $scope.signin = function () {
   //   Auth.signin($scope.user)
@@ -38,7 +39,19 @@ angular.module('event.auth', [])
     Auth.OrgSignup(temp)
       .then(function () {
         // $window.localStorage.setItem('com.shortly', token);
-        $location.path('/');
+        $location.path('/orgProfile');
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+  $scope.CreateEvent = function () {
+    var temp=$scope.event
+    console.log($scope.event)
+    Auth.createEvent($scope.event)
+      .then(function () {
+        // $window.localStorage.setItem('com.shortly', token);
+        $location.path('/orgProfile');
       })
       .catch(function (error) {
         console.error(error);
