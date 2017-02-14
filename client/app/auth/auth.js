@@ -38,7 +38,6 @@ angular.module('event.auth', [])
       });
   }
   $scope.userSignup = function () {
-   
     var temp=$scope.user
     console.log(temp)
     Auth.userSignup(temp)

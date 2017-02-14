@@ -4,9 +4,32 @@
 
     <meta charset="utf-8" />
     <title>event</title>
+  <link rel="stylesheet" href="app/auth/css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="app/auth/css/icomoon.css">
+  <!-- Themify Icons-->
+  <link rel="stylesheet" href="app/auth/css/themify-icons.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="app/auth/css/bootstrap.css">
+
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="app/auth/css/magnific-popup.css">
+
+  <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="app/auth/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="app/auth/css/owl.theme.default.min.css">
+
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="app/auth/css/style.css">
+
+  <!-- Modernizr JS -->
+  <script src="app/auth/js/modernizr-2.6.2.min.js"></script>
+
+
   </head>
   <body ng-app='event'>
-    <h1>event </h1>
+
+    <h1 align="center" style="color:gray;"> events </h1>
     <div class="navigation" >
   <ul ng-controller='AuthController'>
 
@@ -15,6 +38,24 @@
     <li><a href='#logout' class="logout"  ng-click="logout()" > Logout</a></li>
   </ul>
 </div>
+
+
+ <!-- jQuery signin-->
+  <script src="app/auth/js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="app/auth/js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="app/auth/js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="app/auth/js/jquery.waypoints.min.js"></script>
+  <!-- Carousel -->
+  <script src="app/auth/js/owl.carousel.min.js"></script>
+  <!-- Magnific Popup -->
+  <script src="app/auth/js/jquery.magnific-popup.min.js"></script>
+
+  <script src="app/auth/js/magnific-popup-options.js"></script>
+  <!-- Main -->
+  <script src="app/auth/js/main.js"></script>
     
     <div ng-view></div>
  
@@ -27,5 +68,8 @@
  <script src="app/auth/auth.js"></script>  
  <script src="app/services/services.js"></script>
  <script src="app/app.js"></script>  
+
+
+
 
 </html>

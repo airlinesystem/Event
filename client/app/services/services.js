@@ -45,6 +45,17 @@ angular.module('event.services', [])
        return resp.data.token;
     });
   };
+   var OrgSignin = function (org) {
+    return $http({
+      method: 'POST',
+      url: '/api/orgSignin',
+      data: org
+    })
+    .then(function (resp) {
+     
+      return resp.data.token;
+    });
+  };
   var OrgSignup = function(org){
     return $http({
       method: 'POST',
