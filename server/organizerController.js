@@ -64,7 +64,7 @@ module.exports = {
       })  
     } else {
       console.log("not found")
-      res.status(200).send("OrgName is not exist");
+      //res.status(200).send("Org is not exist");
       
       }
   });

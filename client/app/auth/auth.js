@@ -7,6 +7,12 @@ angular.module('event.auth', [])
   $scope.user = {};
   $scope.org ={};
   $scope.event = {};
+     $scope.logout = function () {
+    console.log("logout")
+    Auth.signout()
+   
+
+  };
 
    $scope.userSignin = function () {
     Auth.userSignin($scope.user)
@@ -19,6 +25,9 @@ angular.module('event.auth', [])
       });
   };
   $scope.OrgSignin= function(){
+    console.log('in auth')
+    console.log($scope.org)
+
     Auth.OrgSignin($scope.org)
     .then(function(token){
       $window.localStorage.setItem('com.event',token);
@@ -29,13 +38,13 @@ angular.module('event.auth', [])
       });
   }
   $scope.userSignup = function () {
-    console.log(";dc;")
+   
     var temp=$scope.user
     console.log(temp)
     Auth.userSignup(temp)
       .then(function (token) {
-        // $window.localStorage.setItem('com.shortly', token);
-        $location.path('/');
+        $window.localStorage.setItem('com.event', token);
+        $location.path('/userProfile');
       })
       .catch(function (error) {
         console.error(error);

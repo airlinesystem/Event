@@ -74,7 +74,8 @@ module.exports = {
       })  
     } else {
       // console.log("lklk")
-      res.status(200).send("Username is not exist");
+      // res.status(200).send("Username is not exist");
+      console.log("not found")
       
       }
   });
