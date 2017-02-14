@@ -52,11 +52,14 @@ module.exports = {
   },
 
 getAllEvent : function(req,res){
+  console.log(888)
     Events.reset().fetch().then(function(events){
+      console.log(999)
+      console.log(events.models)
       var dataI=events.models[0].attributes
       console.log(dataI)
     })
-    res.status(200).send(dataI);
+    res.send(dataI);
 
 
 }

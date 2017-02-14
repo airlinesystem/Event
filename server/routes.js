@@ -11,6 +11,6 @@ app.post('/api/orgProfile', eventController.addEvent);
 app.post('/api/userSignin', userController.signin);
 app.post('/api/orgSignin', organizerController.signin);
 
-
+app.get('/api/orgProfile', eventController.getAllEvent)
 // app.get('/api/signedin', userController.checkAuth);
 }
