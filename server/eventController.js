@@ -51,6 +51,15 @@ module.exports = {
     });
   },
 
+getAllEvent : function(req,res){
+    Events.reset().fetch().then(function(events){
+      var dataI=events.models[0].attributes
+      console.log(dataI)
+    })
+    res.status(200).send(dataI);
+
+
+}
 
 
 
