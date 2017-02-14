@@ -24,13 +24,16 @@ angular.module('event.auth', [])
       $window.localStorage.setItem('com.event',token);
       $location.path('/orgProfile')
     })
+    .catch(function (error) {
+        console.error(error);
+      });
   }
   $scope.userSignup = function () {
     console.log(";dc;")
     var temp=$scope.user
     console.log(temp)
     Auth.userSignup(temp)
-      .then(function () {
+      .then(function (token) {
         // $window.localStorage.setItem('com.shortly', token);
         $location.path('/');
       })
@@ -43,8 +46,8 @@ angular.module('event.auth', [])
     var temp=$scope.org
     console.log(temp)
     Auth.OrgSignup(temp)
-      .then(function () {
-        // $window.localStorage.setItem('com.shortly', token);
+      .then(function (token) {
+        $window.localStorage.setItem('com.event', token);
         $location.path('/orgProfile');
       })
       .catch(function (error) {
@@ -53,11 +56,15 @@ angular.module('event.auth', [])
   };
   $scope.CreateEvent = function () {
     var temp=$scope.event
+    var tok =$window.localStorage.getItem('com.event')
+       console.log(tok);
+    temp.tok = tok;   
+
     console.log($scope.event)
     Auth.createEvent(temp)
       .then(function () {
         // $window.localStorage.setItem('com.event', token);
-       console.log($window.localStorage.getItem('com.event'));
+        
         $location.path('/orgProfile');
       })
       .catch(function (error) {
