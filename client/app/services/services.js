@@ -40,7 +40,8 @@ angular.module('event.services', [])
       data: org
     })
     .then(function (resp) {
-    console.log(resp)
+
+    console.log(resp.data)
        return resp.data.token;
     });
   };
@@ -73,6 +74,7 @@ angular.module('event.services', [])
 
   var signout = function () {
     $window.localStorage.removeItem('com.event');
+    console.log( $window.localStorage.getItem('com.event'))
     $location.path('/signin');
   };
 
