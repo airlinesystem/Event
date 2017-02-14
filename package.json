@@ -5,7 +5,7 @@
   "main": "server.js",
 
   "scripts": {
-    "postinstall":"npm install -g nodemone",
+    "postinstall":"npm install -g nodemon",
     "start":"nodemone server.js"
     
 
