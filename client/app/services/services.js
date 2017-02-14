@@ -28,10 +28,20 @@ angular.module('event.services', [])
       url: '/api/userSignup',
       data: user
     })
-    .then(function (user) {
-      console.log('in services')
-      console.log(user)
-       return user
+    .then(function (resp) {
+     console.log(resp)
+     return resp.data.token;
+    });
+  };
+   var OrgSignin = function (org) {
+    return $http({
+      method: 'POST',
+      url: '/api/orgSignin',
+      data: org
+    })
+    .then(function (resp) {
+    console.log(resp)
+       return resp.data.token;
     });
   };
    var OrgSignin = function (org) {
@@ -51,9 +61,9 @@ angular.module('event.services', [])
       url: '/api/OrgSignup',
       data: org
     })
-    .then(function (org) {
-      console.log(org)
-       return org
+    .then(function (resp) {
+      console.log(resp)
+       return resp.data.token;
     });
   };
 
@@ -68,23 +78,23 @@ angular.module('event.services', [])
   	});
   }
   
-  // var isAuth = function () {
-  //   return !!$window.localStorage.getItem('com.shortly');
-  // };
+  var isAuth = function () {
+    return !!$window.localStorage.getItem('com.event');
+  };
 
-  // var signout = function () {
-  //   $window.localStorage.removeItem('com.shortly');
-  //   $location.path('/signin');
-  // };
+  var signout = function () {
+    $window.localStorage.removeItem('com.event');
+    $location.path('/signin');
+  };
 
 
   return {
     userSignin : userSignin ,
     OrgSignin : OrgSignin,
     userSignup: userSignup,
-    OrgSignup:OrgSignup,
-    createEvent : createEvent
-    // isAuth: isAuth,
-    // signout: signout
+    OrgSignup : OrgSignup,
+    createEvent : createEvent,
+    isAuth: isAuth,
+    signout: signout
   };
 });

@@ -35,7 +35,7 @@ module.exports = {
             console.log(123)
             console.log(newOrg.attributes.id)
 	           var token = jwt.encode(newOrg, 'secret');
-            res.json({token: token});
+            res.json({token: token,organizerId:newOrg.attributes.id});
 	          // res.send(newOrg);
 	        });
 	      }
