@@ -9,8 +9,13 @@ var jwt = require('jwt-simple');
 
 module.exports = {
     addEvent:function (req,res) {
-    console.log(req.body)
-    //console.log(req.body.id)
+    console.log("__in event")
+    // console.log(req.body.tok)
+    var decoded = jwt.decode(req.body.tok, 'secret')
+    // var decoded = jwt.decode(token);
+    organizerI = decoded.id
+    console.log(organizerI)
+
 
       // console.log(req.username)
         ////>>>>>>>>>>
@@ -21,7 +26,7 @@ module.exports = {
           var location      = req.body.location;
           var date          = req.body.date;
           var cost          = req.body.cost;
-          var organizerId   = req.body.organizerId
+          var organizerId   = decoded.id
       
       new Event({ eventName: eventName }).fetch().then(function(found) {
       if (found) {
