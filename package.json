@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall":"npm install -g nodemon",
+    "start":"nodemone server.js"
+    
+
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
