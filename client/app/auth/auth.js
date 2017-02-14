@@ -38,10 +38,6 @@ angular.module('event.auth', [])
       });
   }
   $scope.userSignup = function () {
-<<<<<<< HEAD
-=======
-   
->>>>>>> 7aaa9dd54e72abdbe8f6d598edec73166df4348c
     var temp=$scope.user
     console.log(temp)
     Auth.userSignup(temp)

@@ -26,12 +26,6 @@ angular.module('event', [
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
-    }).when('/signin', {
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
-    }).when('/userProfile', {
-      templateUrl: 'app/auth/userProfile.html',
-      controller: 'AuthController'
     })
     .when('/userProfile', {
       templateUrl: 'app/auth/userProfile.html',
