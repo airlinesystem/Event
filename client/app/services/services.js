@@ -89,6 +89,23 @@ angular.module('event.services', [])
     $location.path('/signin');
   };
 
+  var getUserEvent = function (){
+    return $http ({
+      method : 'GET',
+      url : 'api/userProfile',
+    }).then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var getOrgEvent = function (){
+    return $http ({
+      method : 'GET',
+      url : 'api/orgProfile',
+    }).then(function (resp) {
+      return resp.data;
+    });
+  };
 
   return {
     userSignin : userSignin ,
@@ -97,6 +114,8 @@ angular.module('event.services', [])
     OrgSignup : OrgSignup,
     createEvent : createEvent,
     isAuth: isAuth,
-    signout: signout
+    signout: signout,
+    getUserEvent : getUserEvent,
+    getUserEvent : getUserEvent
   };
 });
