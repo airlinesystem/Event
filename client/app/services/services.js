@@ -101,8 +101,9 @@ angular.module('event.services', [])
   var getOrgEvent = function (){
     return $http ({
       method : 'GET',
-      url : 'api/orgProfile',
+      url : '/api/orgProfile',
     }).then(function (resp) {
+      console.log(resp)
       return resp.data;
     });
   };
@@ -116,6 +117,6 @@ angular.module('event.services', [])
     isAuth: isAuth,
     signout: signout,
     getUserEvent : getUserEvent,
-    getUserEvent : getUserEvent
+    getOrgEvent : getOrgEvent
   };
 });
