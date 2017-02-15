@@ -41,21 +41,11 @@ angular.module('event.services', [])
     })
     .then(function (resp) {
 
-    console.log(resp.data)
+    //console.log(resp.data)
        return resp.data.token;
     });
   };
-   var OrgSignin = function (org) {
-    return $http({
-      method: 'POST',
-      url: '/api/orgSignin',
-      data: org
-    })
-    .then(function (resp) {
-     
-      return resp.data.token;
-    });
-  };
+
   var OrgSignup = function(org){
     return $http({
       method: 'POST',
@@ -98,12 +88,13 @@ angular.module('event.services', [])
     });
   };
 
-  var getOrgEvent = function (){
+  var getOrgEvent = function (tok){
     return $http ({
       method : 'GET',
       url : '/api/orgProfile',
+      params:{tok:tok}
     }).then(function (resp) {
-      console.log(resp)
+      console.log(resp.data)
       return resp.data;
     });
   };
