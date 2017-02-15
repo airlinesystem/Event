@@ -61,7 +61,7 @@ angular.module('event.services', [])
   var createEvent = function(event){
   	return $http({
   		method : 'POST',
-  		url :'api/orgProfile',
+  		url :'/api/orgProfile',
   		data : event
   	})
   	.then(function(event){
@@ -82,19 +82,19 @@ angular.module('event.services', [])
   var getUserEvent = function (){
     return $http ({
       method : 'GET',
-      url : 'api/userProfile',
+      url : '/api/userProfile',
     }).then(function (resp) {
       return resp.data;
     });
   };
-
+//ok wait, you have extra / here !
   var getOrgEvent = function (tok){
     return $http ({
       method : 'GET',
       url : '/api/orgProfile',
       params:{tok:tok}
     }).then(function (resp) {
-      console.log(resp.data)
+      // console.log(resp.data)
       return resp.data;
     });
   };

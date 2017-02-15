@@ -7,44 +7,43 @@ angular.module('event.auth', [])
   $scope.user = {};
   $scope.org = {};
   $scope.event = {};
-  $scope.why ={};
-     $scope.logout = function () {
+  $scope.why ={}
+  $scope.logout = function () {
     console.log("logout")
     Auth.signout()
-   
-
   };
 
-   $scope.userSignin = function () {
+  $scope.userSignin = function () {
     Auth.userSignin($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.event', token);
-        // $scope.why = Auth.getUserEvent();
-        $location.path('/userProfile');
+    .then(function (token) {
+    $window.localStorage.setItem('com.event', token);
+    // $scope.why = Auth.getUserEvent();
+    $location.path('/userProfile');
       })
       .catch(function (error) {
         console.error(error);
       });
   };
   $scope.OrgSignin= function(){
-    console.log('in auth')
-    console.log($scope.why)
-    console.log("btata")
-     var temp=$scope.org
-    
+    var temp=$scope.org;
     Auth.OrgSignin(temp)
     .then(function(token){
-     $window.localStorage.setItem('com.event', token);
-     // $window.localStorage.setItem('com.event',token);
-     // console.log($window.localStorage.getItem('com.event',token))
-    $scope.why.events= Auth.getOrgEvent($window.localStorage.getItem('com.event', token))
-        console.log(123)
-     console.log($scope.why.events.Promise.$$state)
-      $location.path('/orgProfile')
+    $window.localStorage.setItem('com.event', token);
+    $scope.why.smthg=token;
+    // $window.localStorage.setItem('com.event',token);
+    // console.log($window.localStorage.getItem('com.event',token))
+    //  Auth.getOrgEvent($window.localStorage.getItem('com.event', token)).then(function (data) {
+    // //     //console.log(data)
+    //      $scope.why.events = data;
+    //      console.log("run plese, but turn the server off first",$scope.why.events)
+    //   })
+    $location.path('/orgProfile')
+
     })
     .catch(function (error) {
         console.error(error);
       });
+
   }
   $scope.userSignup = function () {
     var temp=$scope.user
@@ -86,10 +85,21 @@ angular.module('event.auth', [])
         // $window.localStorage.setItem('com.event', token);
         
         $location.path('/orgProfile');
+      $scope.bring();
       })
       .catch(function (error) {
         console.error(error);
       });
   };
+$scope.bring=function(){
+console.log($window.localStorage.getItem('com.event')) 
+   Auth.getOrgEvent($window.localStorage.getItem('com.event')).then(function (data) {
+    //     //console.log(data)
+         $scope.why.events = data;
+         console.log("run plese, but turn the server off first",$scope.why.events)
+  })
+}
+$scope.bring();
+
 
 });
