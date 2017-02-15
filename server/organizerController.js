@@ -35,7 +35,7 @@ module.exports = {
             console.log(123)
             console.log(newOrg.attributes.id)
 	           var token = jwt.encode(newOrg, 'secret');
-            res.json({token: token,organizerId:newOrg.attributes.id});
+            res.json({token: token});
 	          // res.send(newOrg);
 	        });
 	      }
@@ -56,7 +56,8 @@ module.exports = {
         if(exist){
        
           // response.status(200).send("done");
-          var token = jwt.encode(found, 'secret');
+          var token = jwt.encode(found,'secret');
+          console.log(token)
           res.json({token: token});
         }else{
           res.send("password is not correct");

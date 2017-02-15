@@ -7,7 +7,7 @@ angular.module('event.auth', [])
   $scope.user = {};
   $scope.org = {};
   $scope.event = {};
-  $scope.events = [];
+  $scope.why ={};
      $scope.logout = function () {
     console.log("logout")
     Auth.signout()
@@ -19,7 +19,7 @@ angular.module('event.auth', [])
     Auth.userSignin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.event', token);
-         $scope.events = Auth.getUserEvent();
+        // $scope.why = Auth.getUserEvent();
         $location.path('/userProfile');
       })
       .catch(function (error) {
@@ -28,12 +28,18 @@ angular.module('event.auth', [])
   };
   $scope.OrgSignin= function(){
     console.log('in auth')
-    console.log($scope.org)
-
-    Auth.OrgSignin($scope.org)
+    console.log($scope.why)
+    console.log("btata")
+     var temp=$scope.org
+    
+    Auth.OrgSignin(temp)
     .then(function(token){
-      $window.localStorage.setItem('com.event',token);
-      $scope.events = Auth.getOrgEvent();
+     $window.localStorage.setItem('com.event', token);
+     // $window.localStorage.setItem('com.event',token);
+     // console.log($window.localStorage.getItem('com.event',token))
+    $scope.why.events= Auth.getOrgEvent($window.localStorage.getItem('com.event', token))
+        console.log(123)
+     console.log($scope.why.events.Promise.$$state)
       $location.path('/orgProfile')
     })
     .catch(function (error) {
@@ -59,8 +65,9 @@ angular.module('event.auth', [])
     console.log(temp)
     Auth.OrgSignup(temp)
       .then(function (token) {
-        $window.localStorage.setItem('com.event', token);
-        $scope.events = Auth.getUserEvent();
+       $window.localStorage.setItem('com.event', token);
+      Auth.getOrgEvent($window.localStorage.getItem('com.event', token))
+    
         $location.path('/orgProfile');
       })
       .catch(function (error) {

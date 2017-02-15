@@ -8,11 +8,13 @@ var Events = require('./collections/events');
 var jwt = require('jwt-simple');
 
 module.exports = {
+
     addEvent:function (req,res) {
     console.log("__in event")
     // console.log(req.body.tok)
     var decoded = jwt.decode(req.body.tok, 'secret')
     // var decoded = jwt.decode(token);
+    console.log(decoded)
     organizerI = decoded.id
     console.log(organizerI)
 
@@ -52,18 +54,41 @@ module.exports = {
   },
 
 getAllEvent : function(req,res){
-  console.log(888)
+     // var decoded = jwt.decode(req.body.tok, 'secret')
+     // var I     = decoded.id
+// "sds".split("").splice(1).join("")
+  var tok = jwt.decode(req.query.tok, 'secret')
+  // console.log('in get all eve')
+    //console.log(tok.id)
+   
     Events.reset().fetch().then(function(events){
       console.log(999)
-      console.log(events.models)
-      var dataI=events.models[0].attributes
-      console.log(dataI)
-    })
-    res.send(dataI);
+      var Orgevents=[];
+       console.log(Orgevents)
+      // console.log(events)
+      for(var i=0;i<events.models.length;i++){
+        if(tok.id===events.models[i].attributes.organizerId){
+          //console.log('in for')
+         // console.log(events.models[i].attributes.organizerId)
+          Orgevents.push(events.models[i].attributes);
+
+        }
+      }
+    console.log(Orgevents)
+      res.json(Orgevents)
+     })
+    // .then(function(Orgevents){
+    //   console.log(Orgevents)
+    //   res.json(Orgevents)
+    // })
+
+    // console.log('in data rl btata')
+    
+   
+    //   console.log(res)
 
 
 }
-
 
 
 
