@@ -27,8 +27,8 @@ db.knex.schema.hasTable('organizers').then(function(exists){
     db.knex.schema.createTable('organizers',function (organizer){
       organizer.increments('id').primary();
       organizer.string('orgName',100);
-      organizer.string('orgTel',100);
-      organizer.string('orgWebsite',100);
+      // organizer.string('orgTel',100);
+      // organizer.string('orgWebsite',100);
       organizer.string('email',100);
       organizer.string('password',255);
       organizer.timestamps();
@@ -47,7 +47,7 @@ db.knex.schema.hasTable('events').then(function(exists){
       event.string('location',100);
       event.string('date',100);
       event.string('cost',100);
-      event.string('orgTel',100);
+      event.string('orgMob',100);
       event.string('orgWebsite',100);
       event.integer('organizerId');
       event.timestamps();
