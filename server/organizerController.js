@@ -12,8 +12,7 @@ module.exports = {
 
 		  var orgName    = req.body.orgName;
       var email      = req.body.email;
-      var orgTel     = req.body.orgTel;
-      var orgWebsite = req.body.orgWebsite;
+   
 
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
 		      hashedpass = hash;
@@ -25,9 +24,8 @@ module.exports = {
 	        Organizers.create({
 	          orgName   : orgName,
 	          password  : hashedpass,
-	          email     : email,
-            orgTel    : orgTel,
-            orgWebsite: orgWebsite
+	          email     : email
+         
 
 	        })
 	        .then(function(newOrg) {
