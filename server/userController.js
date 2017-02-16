@@ -7,25 +7,24 @@ var jwt = require('jwt-simple');
 module.exports = {
 		userSignup:function (req,res) {
 
-		  var username  = req.body.username;
-          var email  = req.body.email;
-          var eventtype = req.body.eventtype
-		      var hashedpass = util.hashpass(req.body.password,function(hash){
-		       hashedpass = hash;
+		  var username   = req.body.username;
+          var email      = req.body.email;
+          var eventtype  = req.body.eventtype
+		  var hashedpass = util.hashpass(req.body.password,function(hash){
+		      hashedpass = hash;
 		     });
 	    new User({ username: username }).fetch().then(function(found) {
 	    if (found) {
 	      res.status(200).send("this user is already existed");
 	    } else {
 	        Users.create({
-	          username: username,
-	          password: hashedpass,
-	          email: email,
-	          eventtype: eventtype
-
+	          username  : username,
+	          password  : hashedpass,
+	          email     : email,
+	          eventtype : eventtype
 	        })
 	        .then(function(newUser) {
-	          var token = jwt.encode(newUser, 'secret');
+	          var token = jwt.encode(newUser, 'not your bussines!!');
 	          res.json({token: token});
 	        });
 	      }
@@ -33,10 +32,10 @@ module.exports = {
 	},
 
  signin : function(req,res) {
-  var email     = req.body.email; 
-  var password  = req.body.password;
+  var email      = req.body.email; 
+  var password   = req.body.password;
   var hashedpass = util.hashpass(password,function(hash){
-    hashedpass = hash;
+      hashedpass = hash;
   });
     new User({ email: email }).fetch().then(function(found) {
     if (found) {
@@ -44,7 +43,7 @@ module.exports = {
       util.comparePass(password,userHash,function(exist){
         if(exist){
        
-          var token = jwt.encode(found, 'secret');
+          var token = jwt.encode(found, 'not your bussines!!');
           res.json({token: token});
                  }else{
           res.send("password is not correct");
