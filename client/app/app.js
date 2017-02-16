@@ -20,7 +20,8 @@ angular.module('event', [
     })
     .when('/orgProfile', {
       templateUrl: 'app/auth/orgProfile.html',
-      controller: 'AuthController'
+      controller: 'AuthController',
+      authenticate: true
       
     })
     .when('/signin', {

@@ -45,48 +45,37 @@ module.exports = {
           })
           .then(function(newEvent) {
               console.log(newEvent)
-              //  var token = jwt.encode(newEvent, 'secret');
-              // res.json({token: token});
             res.send(newEvent);
           });
         }
     });
   },
 
-getAllEvent : function(req,res){
-     // var decoded = jwt.decode(req.body.tok, 'secret')
-     // var I     = decoded.id
-// "sds".split("").splice(1).join("")
+getAllEventOrg : function(req,res){
   var tok = jwt.decode(req.query.tok, 'secret')
-  // console.log('in get all eve')
-    //console.log(tok.id)
-   
     Events.reset().fetch().then(function(events){
-      console.log(999)
       var Orgevents=[];
-       console.log(Orgevents)
-      // console.log(events)
       for(var i=0;i<events.models.length;i++){
         if(tok.id===events.models[i].attributes.organizerId){
-          //console.log('in for')
-         // console.log(events.models[i].attributes.organizerId)
           Orgevents.push(events.models[i].attributes);
-
         }
       }
-    console.log(Orgevents)
       res.json(Orgevents)
      })
-    // .then(function(Orgevents){
-    //   console.log(Orgevents)
-    //   res.json(Orgevents)
-    // })
 
-    // console.log('in data rl btata')
-    
-   
-    //   console.log(res)
+},
 
+getAllEventUser : function(req,res){
+  var tokk = jwt.decode(req.query.tok, 'secret')
+    Events.reset().fetch().then(function(events){
+      var UserEvents=[];
+      for(var i=0;i<events.models.length;i++){
+        if(tokk.eventtype===events.models[i].attributes.type){
+          UserEvents.push(events.models[i].attributes);
+        }
+      }
+      res.json(UserEvents)
+     })
 
 }
 

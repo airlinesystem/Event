@@ -79,11 +79,13 @@ angular.module('event.services', [])
     $location.path('/signin');
   };
 
-  var getUserEvent = function (){
+  var getUserEvent = function (tok){
     return $http ({
       method : 'GET',
       url : '/api/userProfile',
+      params:{tok:tok}
     }).then(function (resp) {
+      console.log(resp)
       return resp.data;
     });
   };
