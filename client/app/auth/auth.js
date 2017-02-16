@@ -7,6 +7,11 @@ angular.module('event.auth', [])
   $scope.event = {};
   $scope.why ={}
   $scope.why2 ={};
+  $scope.eventType =[
+         "Music",
+         "Tech",
+         "Sport"
+    ];
   
 
   $scope.logout = function () {
