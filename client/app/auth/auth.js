@@ -74,8 +74,6 @@ angular.module('event.auth', [])
     var temp=$scope.event
     var tok =$window.localStorage.getItem('com.event')
     temp.tok = tok;   
-
-    console.log($scope.event)
     Auth.createEvent(temp)
       .then(function () {
         $location.path('/orgProfile');
