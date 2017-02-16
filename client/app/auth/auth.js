@@ -1,6 +1,4 @@
-// do not tamper with this code in here, study it, but do not touch
-// this Auth controller is responsible for our client side authentication
-// in our signup/signin forms using the injected Auth service
+
 angular.module('event.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
@@ -22,7 +20,6 @@ angular.module('event.auth', [])
     Auth.userSignin(temp)
     .then(function (token) {
     $window.localStorage.setItem('com.event', token);
-    // $scope.why = Auth.getUserEvent();
     $location.path('/userProfile');
       })
       .catch(function (error) {
@@ -45,7 +42,6 @@ angular.module('event.auth', [])
   $scope.userSignup = function () {
     
     var temp=$scope.user
-    console.log(temp)
     Auth.userSignup(temp)
       .then(function (token) {
         $window.localStorage.setItem('com.event', token);
@@ -56,7 +52,6 @@ angular.module('event.auth', [])
         console.error(error);
       });
   };
-// getUserEvent
   $scope.OrgnizerSignup = function () {
    
     var temp=$scope.org
@@ -81,8 +76,6 @@ angular.module('event.auth', [])
     console.log($scope.event)
     Auth.createEvent(temp)
       .then(function () {
-        // $window.localStorage.setItem('com.event', token);
-        
         $location.path('/orgProfile');
       $scope.bring();
       })
@@ -97,9 +90,7 @@ $scope.bring=function(){
   
  
     Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
-     //console.log(data)
        $scope.why2.events = data;
-      // console.log("User Work",$scope.why2.events)
      })
 
    
