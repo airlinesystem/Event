@@ -13,8 +13,9 @@ module.exports = {
           var date         = req.body.date.split("").splice(0,10).join("");
           var cost         = req.body.cost;
           var organizerId  = decoded.id;
-          var orgTel       = decoded.orgTel
-          var orgWebsite   = decoded.orgWebsite
+          var orgMob       = req.body.orgMob;
+          var orgWebsite   = req.body.orgWebsite;
+      
       
       new Event({ eventName: eventName }).fetch().then(function(found) {
       if (found) {
@@ -27,7 +28,7 @@ module.exports = {
             date        : date,
             cost        : cost,
             organizerId : organizerId,
-            orgTel      : orgTel,
+            orgMob      : orgMob,
             orgWebsite  : orgWebsite
 
 
