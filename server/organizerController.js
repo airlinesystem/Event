@@ -7,9 +7,6 @@ var jwt = require('jwt-simple');
 
 module.exports = {
 		signup:function (req,res) {
-    
-      console.log(req.body)
-
 		  var orgName    = req.body.orgName;
       var email      = req.body.email;
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
