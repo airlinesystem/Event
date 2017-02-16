@@ -15,7 +15,6 @@ angular.module('event.auth', [])
   
 
   $scope.logout = function () {
-    console.log("logout")
     Auth.signout()
   };
 
@@ -60,7 +59,6 @@ angular.module('event.auth', [])
   $scope.OrgnizerSignup = function () {
    
     var temp=$scope.org
-    console.log(temp)
     Auth.OrgSignup(temp)
       .then(function (token) {
        $window.localStorage.setItem('com.event', token);
@@ -75,7 +73,6 @@ angular.module('event.auth', [])
   $scope.CreateEvent = function () {
     var temp=$scope.event
     var tok =$window.localStorage.getItem('com.event')
-    console.log(tok);
     temp.tok = tok;   
 
     console.log($scope.event)

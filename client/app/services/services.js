@@ -10,7 +10,6 @@ angular.module('event.services', [])
       data: user
     })
     .then(function (resp) {
-      console.log(resp.data.token)
       return resp.data.token;
     });
   };
@@ -23,7 +22,6 @@ angular.module('event.services', [])
       data: user
     })
     .then(function (resp) {
-     console.log(resp)
      return resp.data.token;
     });
   };
@@ -46,7 +44,6 @@ angular.module('event.services', [])
       data: org
     })
     .then(function (resp) {
-      console.log(resp)
        return resp.data.token;
     });
   };
@@ -68,7 +65,6 @@ angular.module('event.services', [])
 
   var signout = function () {
     $window.localStorage.removeItem('com.event');
-    console.log( $window.localStorage.getItem('com.event'))
     $location.path('/signin');
   };
 
@@ -78,7 +74,6 @@ angular.module('event.services', [])
       url : '/api/userProfile',
       params:{tok:tok}
     }).then(function (resp) {
-      console.log(resp)
       return resp.data;
     });
   };

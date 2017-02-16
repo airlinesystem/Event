@@ -12,8 +12,6 @@ module.exports = {
 
 		  var orgName    = req.body.orgName;
       var email      = req.body.email;
-   
-
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
 		      hashedpass = hash;
 		  });
@@ -26,7 +24,6 @@ module.exports = {
 	          password  : hashedpass,
 	          email     : email
          
-
 	        })
 	        .then(function(newOrg) {
 	          var token = jwt.encode(newOrg, 'not your bussines!!');

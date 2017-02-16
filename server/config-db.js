@@ -27,8 +27,6 @@ db.knex.schema.hasTable('organizers').then(function(exists){
     db.knex.schema.createTable('organizers',function (organizer){
       organizer.increments('id').primary();
       organizer.string('orgName',100);
-      // organizer.string('orgTel',100);
-      // organizer.string('orgWebsite',100);
       organizer.string('email',100);
       organizer.string('password',255);
       organizer.timestamps();
