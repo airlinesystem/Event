@@ -19,6 +19,11 @@ body {
   background: #ececec;
 }
 
+
+.pending-delete {
+  background-color: pink
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
