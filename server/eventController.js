@@ -31,7 +31,6 @@ module.exports = {
             orgMob      : orgMob,
             orgWebsite  : orgWebsite
 
-
           })
           .then(function(newEvent) {
             res.send(newEvent);
