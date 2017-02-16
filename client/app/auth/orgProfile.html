@@ -12,19 +12,8 @@
   </form>
   <div ng-repeat="event in why.events"  >
   <div >
-<!--   {{event.date}}
- -->  </div>
-<!-- <ul>
-    <li ng-if="$odd" style="background-color:#f1f1f1">
-    {{ event.date }}</li>
-    <li ng-if="$even">
-    {{ event.eventName }}</li>
-    <li ng-if="$odd" style="background-color:#f1f1f1">
-    {{ event.type }}</li>
-    <li ng-if="$even">
-    {{ event.location }}</li>
-  </li>
-</ul> -->
+  </div>
+
 
 <div class="container">
         <div class="row">
@@ -32,11 +21,9 @@
                 <ul class="event-list">
                     <li>
             <time datetime="">
-<!--               <span class="day">{{event.date}}</span>
- -->             <!--  <span class="month">2017</span> -->
+            
               <span class="day">{{event.date}}</span>
-<!--               <span class="time">12:00 AM</span>
- -->            </time>
+            </time>
             <div class="info">
               <h2 class="title">{{event.eventName}}</h2>
               <p class="desc"><img style="width: 8%;height: 8%" src="http://www.freeiconspng.com/uploads/red-location-icon-1.png"> {{event.location}}</p>
@@ -58,6 +45,6 @@
 
 
  </div>
-  hello it's me ..
+ 
 </div>
 
