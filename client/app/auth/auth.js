@@ -8,13 +8,18 @@ angular.module('event.auth', [])
   $scope.org = {};
   $scope.event = {};
   $scope.why ={}
+  $scope.why2 ={};
+  
+
   $scope.logout = function () {
     console.log("logout")
     Auth.signout()
   };
 
   $scope.userSignin = function () {
-    Auth.userSignin($scope.user)
+    var temp=$scope.user
+
+    Auth.userSignin(temp)
     .then(function (token) {
     $window.localStorage.setItem('com.event', token);
     // $scope.why = Auth.getUserEvent();
@@ -25,20 +30,12 @@ angular.module('event.auth', [])
       });
   };
   $scope.OrgSignin= function(){
+    
     var temp=$scope.org;
     Auth.OrgSignin(temp)
     .then(function(token){
     $window.localStorage.setItem('com.event', token);
-    $scope.why.smthg=token;
-    // $window.localStorage.setItem('com.event',token);
-    // console.log($window.localStorage.getItem('com.event',token))
-    //  Auth.getOrgEvent($window.localStorage.getItem('com.event', token)).then(function (data) {
-    // //     //console.log(data)
-    //      $scope.why.events = data;
-    //      console.log("run plese, but turn the server off first",$scope.why.events)
-    //   })
     $location.path('/orgProfile')
-
     })
     .catch(function (error) {
         console.error(error);
@@ -46,20 +43,22 @@ angular.module('event.auth', [])
 
   }
   $scope.userSignup = function () {
+    
     var temp=$scope.user
     console.log(temp)
     Auth.userSignup(temp)
       .then(function (token) {
         $window.localStorage.setItem('com.event', token);
-        $scope.events = Auth.getUserEvent();
+        Auth.getUserEvent($window.localStorage.getItem('com.event', token));
         $location.path('/userProfile');
       })
       .catch(function (error) {
         console.error(error);
       });
   };
-
+// getUserEvent
   $scope.OrgnizerSignup = function () {
+   
     var temp=$scope.org
     console.log(temp)
     Auth.OrgSignup(temp)
@@ -92,13 +91,20 @@ angular.module('event.auth', [])
       });
   };
 $scope.bring=function(){
-console.log($window.localStorage.getItem('com.event')) 
-   Auth.getOrgEvent($window.localStorage.getItem('com.event')).then(function (data) {
-    //     //console.log(data)
+  Auth.getOrgEvent($window.localStorage.getItem('com.event')).then(function (data) {
          $scope.why.events = data;
-         console.log("run plese, but turn the server off first",$scope.why.events)
   })
-}
+  
+ 
+    Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
+     //console.log(data)
+       $scope.why2.events = data;
+      // console.log("User Work",$scope.why2.events)
+     })
+
+   
+   
+} 
 $scope.bring();
 
 

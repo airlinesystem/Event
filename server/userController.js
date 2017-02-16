@@ -12,7 +12,7 @@ module.exports = {
 		userSignup:function (req,res) {
 
     
-      console.log(req.username)
+      //console.log(req.username)
 
 
 
@@ -36,7 +36,7 @@ module.exports = {
 
 	        })
 	        .then(function(newUser) {
-            console.log(newUser)
+            //console.log(newUser)
 	          var token = jwt.encode(newUser, 'secret');
 	          res.json({token: token});
 	          //res.send(newUser);
@@ -50,7 +50,7 @@ module.exports = {
     
   var email     = req.body.email; 
   var password  = req.body.password;
-  console.log(password)
+  //console.log(password)
   var hashedpass = util.hashpass(password,function(hash){
     hashedpass = hash;
   });
@@ -62,7 +62,7 @@ module.exports = {
         if(exist){
        
           // res.status(200).send("done");
-          console.log(res.status)
+          //console.log(res.status)
           var token = jwt.encode(found, 'secret');
           res.json({token: token});
           // var decoded = jwt.decode(token, 'secret')
@@ -75,9 +75,7 @@ module.exports = {
     } else {
       // console.log("lklk")
       // res.status(200).send("Username is not exist");
-      return 'err'
-      res.status(200).send("Username is not exist");
-      console.log("not found")
+    console.log("not found")
       }
   });
  }
