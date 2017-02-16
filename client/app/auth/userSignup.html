@@ -5,8 +5,9 @@
     <input placeholder="username"  type='text' ng-model='user.username' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
     <input placeholder="email"  type="email" ng-model='user.email' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
     <input placeholder="password"  type="password" ng-model='user.password' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required >
-    <input placeholder="eventtype"  type="text" ng-model='user.eventtype' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
-    <button type="submit" class="btn btn-primary logout ">Signup</button>
+       <select class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="user.eventtype" ng-options="opt for opt in eventType" required>
+  <option disabled selected value> choose type</option>
+  </select>    <button type="submit" class="btn btn-primary logout ">Signup</button>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
   </form>
 </div>
