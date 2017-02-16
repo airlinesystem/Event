@@ -10,25 +10,28 @@ module.exports = {
     
       console.log(req.body)
 
-		  var orgName  = req.body.orgName;
-          var email     = req.body.email;
+		  var orgName    = req.body.orgName;
+      var email      = req.body.email;
+      var orgTel     = req.body.orgTel;
+      var orgWebsite = req.body.orgWebsite;
+
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
-		    hashedpass = hash;
+		      hashedpass = hash;
 		  });
 	    new Organizer({ orgName: orgName }).fetch().then(function(found) {
 	    if (found) {
 	      res.status(200).send("this orgName is already existed");
 	    } else {
 	        Organizers.create({
-	          orgName: orgName,
-	          password: hashedpass,
-	          email: email,
+	          orgName   : orgName,
+	          password  : hashedpass,
+	          email     : email,
+            orgTel    : orgTel,
+            orgWebsite: orgWebsite
 
 	        })
 	        .then(function(newOrg) {
-            console.log(123)
-            console.log(newOrg.attributes.id)
-	           var token = jwt.encode(newOrg, 'secret');
+	          var token = jwt.encode(newOrg, 'not your bussines!!');
             res.json({token: token});
 	        });
 	      }
@@ -37,18 +40,17 @@ module.exports = {
 
  signin : function(req,res) {
     
-  var email     = req.body.email; 
-  var password  = req.body.password;
+  var email      = req.body.email; 
+  var password   = req.body.password;
   var hashedpass = util.hashpass(password,function(hash){
-    hashedpass = hash;
+      hashedpass = hash;
   });
     new Organizer({ email: email }).fetch().then(function(found) {
     if (found) {
       var userHash = found.get('password');
       util.comparePass(password,userHash,function(exist){
         if(exist){
-          var token = jwt.encode(found,'secret');
-          console.log(token)
+          var token = jwt.encode(found,'not your bussines!!');
           res.json({token: token});
         }else{
           res.send("password is not correct");
