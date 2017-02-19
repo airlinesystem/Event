@@ -4,8 +4,19 @@
     <title>User Profile</title>
   </head>
   <header>
-  	
-<div class="container" ng-repeat="event in why2.events">
+
+ 
+
+<label>Search: <input ng-model="searchText"></label>
+<!-- <table id="searchTextResults">
+ 
+  <tr ng-repeat="event in why2.events | filter:searchText">
+    <td>{{event.eventName}}</td>
+  </tr>
+</table>
+ -->
+
+<div class="container" ng-repeat="event in why2.events  | filter:searchText">
         <div class="row">
             <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
                 <ul class="event-list">
