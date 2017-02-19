@@ -1,6 +1,6 @@
 
 
-    <div>
+    <div class="color">
 
    <form ng-submit="CreateEvent()"  name="Create-event" class="col-md-4  animate-box fadeInRight animated-fast" style="    border-style: dotted solid dashed;border-color: #2fe9f9 #2fe9f9; "  >
     <input placeholder="Event Name"  type='text' ng-model='event.eventName' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
@@ -9,7 +9,7 @@
     <input placeholder="cost" type="text" ng-model='event.cost' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
         <input placeholder="Website" type="text" ng-model='event.orgWebsite' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
             <input placeholder="Mobile" type="text" ng-model='event.orgMob' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
-            <select class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="event.type" ng-options="opt for opt in eventType" required>
+            <select  style="color: #ff9900;" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="event.type" ng-options="opt for opt in eventType" required>
   <option disabled selected value> choose type</option>
   </select>
 
