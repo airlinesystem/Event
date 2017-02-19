@@ -4,20 +4,23 @@
     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
       <ul class="event-list">
         <li>
-          <time datetime="">
-            <span class="day">{{event.date}}</span>
-          </time>
-          <div class="info">
-            <h2 class="title">{{event.eventName}}</h2>
-            <p class="desc"><img style="width: 5%;height: 5%" src="http://www.freeiconspng.com/uploads/red-location-icon-1.png"> {{event.location}}</p>
-            <p class="desc">Mobile : {{event.orgMob}}</p>
-            <ul>
-              <li style="width:50%;"><a ng-href="http://{{event.orgWebsite}}"><span class="fa fa-globe"></span> Website</a></li>
-              <li style="width:50%;"><span class="fa fa-money"></span> ${{event.cost}}</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
+         <time datetime="">
+           <img src="https://cdn4.iconfinder.com/data/icons/proglyphs-business-and-office/512/Calendar-512.png" id="img"></br>
+           <span class="day">{{event.date}}</span>
+
+         </time>
+         <div class="info">
+          <h2 class="title">{{event.eventName}}</h2>
+          <p class="desc"> 
+          <img style="width: 5%;height: 5%" src="https://maxcdn.icons8.com/Share/icon/Maps//marker1600.png"> {{event.location}}</p>
+          <p class="desc">Mobile : {{event.orgMob}}</p>
+          <ul>
+            <li style="width:50%;"><a ng-href="http://{{event.orgWebsite}}"><span class="fa fa-globe"></span> Website</a></li>
+            <li style="width:50%;"><span class="fa fa-money"></span> ${{event.cost}}</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
+</div>
 </div>
