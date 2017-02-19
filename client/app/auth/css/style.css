@@ -1884,15 +1884,20 @@ form label {
     display: none;
   }
   .event-list > li > time > .day {
+text-align: center;
     display: block;
-    font-size: 23pt;
-    font-weight: 100;
+    font-size: 14pt;
+    font-weight: 50;
     line-height: 1;
+  }
+  .event-list > li > time > #img{
+    width: 50px;
+    height: 50px;
   }
   .event-list > li time > .month {
     display: block;
-    font-size: 24pt;
-    font-weight: 900;
+    font-size: 14pt;
+    font-weight: 50;
     line-height: 1;
   }
   .event-list > li > img {
