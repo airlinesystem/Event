@@ -15,8 +15,8 @@ module.exports = {
           var organizerId  = decoded.id;
           var orgMob       = req.body.orgMob;
           var orgWebsite   = req.body.orgWebsite;
-      
-      
+          var location2    = req.body.location2;
+      console.log(req.body)
       new Event({ eventName: eventName }).fetch().then(function(found) {
       if (found) {
         res.status(200).send("this event is already existed");
@@ -29,8 +29,8 @@ module.exports = {
             cost        : cost,
             organizerId : organizerId,
             orgMob      : orgMob,
-            orgWebsite  : orgWebsite
-
+            orgWebsite  : orgWebsite,
+            location2   : location2
           })
           .then(function(newEvent) {
             res.send(newEvent);

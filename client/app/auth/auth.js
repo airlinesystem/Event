@@ -72,7 +72,8 @@ angular.module('event.auth', [])
   };
   $scope.CreateEvent = function () {
     var temp=$scope.event
-    var tok =$window.localStorage.getItem('com.event')
+        temp.location2 = $window.localStorage.location2;
+       var tok =$window.localStorage.getItem('com.event')
     temp.tok = tok;   
     Auth.createEvent(temp)
       .then(function () {

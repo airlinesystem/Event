@@ -4,19 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Marker Labels</title>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEqNTG0Zdyenv3o83wGccNscPq45LTNOs&callback=initMap"></script>
     <script>
       // In the following example, markers appear when the user clicks on the map.
@@ -60,6 +48,27 @@
     </script>
   </head>
   <body>
-    <div id="map"></div>
+<form ng-submit="CreateEvent()"  name="Create-event" class="col-md-4  animate-box fadeInRight animated-fast" style="    border-style: dotted solid dashed;border-color: #2fe9f9 #2fe9f9; "  >
+
+
+    <input placeholder="Event Name"  type='text' ng-model='event.eventName' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <input placeholder="Location" type="text" ng-model='event.location' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <input placeholder="Date" type="date" ng-model='event.date' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <input placeholder="cost" type="text" ng-model='event.cost' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <input placeholder="Website" type="text" ng-model='event.orgWebsite' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <input placeholder="Mobile" type="text" ng-model='event.orgMob' class="form-control ng-pristine ng-untouched ng-valid ng-empty" required>
+
+    <select style="color:#ff9900" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="event.type" ng-options="opt for opt in eventType" required>
+
+      <option disabled selected value> choose type</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+    <div id="map" style="width:400px;height:400px;"></div>
   </body>
 </html>

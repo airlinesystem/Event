@@ -48,6 +48,7 @@ db.knex.schema.hasTable('events').then(function(exists){
       event.string('orgMob',100);
       event.string('orgWebsite',100);
       event.integer('organizerId');
+      event.string('location2',100);
       event.timestamps();
     }).then(function(table){
       console.log('created Table',table);
