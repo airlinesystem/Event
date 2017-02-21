@@ -8,8 +8,8 @@ module.exports = {
 		userSignup:function (req,res) {
 
 		  var username   = req.body.username;
-          var email      = req.body.email;
-          var eventtype  = req.body.eventtype
+      var email      = req.body.email;
+      var eventtype  = req.body.eventtype
           console.log(eventtype)
 		  var hashedpass = util.hashpass(req.body.password,function(hash){
 		      hashedpass = hash;
