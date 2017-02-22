@@ -26,7 +26,7 @@ angular.module('event.auth', [])
   };
 
   $scope.OrgSignin= function(){
-    var temp=$scope.org;
+    var temp=$scope.org
     Auth.OrgSignin(temp)
     .then(function(token){
       $window.localStorage.setItem('com.event', token);
@@ -52,6 +52,7 @@ angular.module('event.auth', [])
 
   $scope.OrgnizerSignup = function () {
     var temp=$scope.org
+    console.log(temp)
     Auth.OrgSignup(temp)
     .then(function (token) {
       $window.localStorage.setItem('com.event', token);
