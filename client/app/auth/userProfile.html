@@ -1,30 +1,53 @@
-<label>Search: <input ng-model="searchText"></label>
-<button style="float: right;" ng-click="logout()" class="btn btn-primary logout ">Logout</button>
-<div class="container" ng-repeat="event in why2.events | filter:searchText">
-  <div class="row">
-    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-      <ul class="event-list">
-        <li>
-         <time datetime="">
-           <img src="https://cdn4.iconfinder.com/data/icons/proglyphs-business-and-office/512/Calendar-512.png" id="img"></br>
-           <span class="day">{{event.date}}</span>
+<div class="row">
+  <div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar" id="menu" style="font-family: Lobster; font-size: 24px;" >
+      <li class="active"><img src="./app/auth/ev.png" style="width: 150px;height:150px "></li>
+      <li ng-click="getsom('Sport')"><a>Sport</a></li>
+      <li ng-click="getsom('Music')"><a>Music</a></li>
+      <li ng-click="getsom('Tech')"><a>Tech</a></li>
+      <li ng-click="getsom('Art')"><a>Art</a></li>
+      <li ng-click="getsom('Culture')"><a>Culture</a></li>
+      <li><button  ng-click="logout()" class="btn btn-primary logout">logout</button>
+      </li>
+    </ul>
+  </div>
+    <input ng-model="searchText" type="text" class="form-control" placeholder="Search on Event" style="background-color: white;"  id="t" >
+</div>
+<!-- end nav -->
 
-         </time>
-         <div class="info">
-          <h2 class="title">{{event.eventName}}</h2>
-          <p class="desc" ng-click="maps(event.location2, event.eventName)"> 
-            <img style="width: 5%;height: 5%" src="https://maxcdn.icons8.com/Share/icon/Maps//marker1600.png"> {{event.location}}</p>
-            <p class="desc">Mobile : {{event.orgMob}}</p>
-            <ul>
-              <li style="width:50%;"><a ng-href="http://{{event.orgWebsite}}"><span class="fa fa-globe"></span> Website</a></li>
-              <li style="width:50%;"><span class="fa fa-money"></span> ${{event.cost}}</li>
-            </ul>
+  
+ 
+<div>
+  <div class="container"  ng-repeat="event in why2.events | filter:searchText">
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header" style="color: red;">{{event.eventName}}</h1>
+      <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+          <ul class="event-list">
+            <li>
+             <time datetime="">
+               <img src="https://cdn4.iconfinder.com/data/icons/proglyphs-business-and-office/512/Calendar-512.png" id="img"></br>
+               <span class="day">{{event.date}}</span>
+
+             </time>
+             <div class="info">
+              <h2 class="title">{{event.eventName}}</h2>
+              <p class="desc" ng-click="maps(event.location2, event.eventName)"> 
+                <img style="width: 5%;height: 5%" src="https://maxcdn.icons8.com/Share/icon/Maps//marker1600.png"> {{event.location}}</p>
+                <p class="desc">Mobile : {{event.orgMob}}</p>
+                <ul>
+                  <li style="width:50%;"><a ng-href="http://{{event.orgWebsite}}"><span class="fa fa-globe"></span> Website</a></li>
+                  <li style="width:50%;"><span class="fa fa-money"></span> ${{event.cost}}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div ng-show="maps" >
+            <div ng-attr-id="{{ event.eventName }}" style="width:400px;height:400px;"></div>
           </div>
-        </li>
-      </ul>
-      <div ng-show="maps">
-        <div ng-attr-id="{{ event.eventName }}" style="width:400px;height:400px;"></div>
-      </div>
+        </div>
+      </div>  
     </div>
   </div>
-</div>
+

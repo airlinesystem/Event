@@ -7,7 +7,7 @@ angular.module('event.auth', [])
   $scope.event = {};
   $scope.why ={}
   $scope.why2 ={};
-  $scope.eventType =["Music","Tech","Sport"];
+  $scope.eventType =["Music","Tech","Sport","Culture","Art"];
 
   $scope.logout = function () {
     Auth.signout()
@@ -102,6 +102,19 @@ angular.module('event.auth', [])
      $scope.why2.events = data;
    })
   } 
-  $scope.bring();
+   $scope.getsom = function(type){
+    Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
+        $scope.why2.events = [];
+      for(var i= 0; i< data.length; i++){
+      if(type === data[i]['type']){
+        $scope.why2.events.push(data[i])
+      } 
+      }
+    
+
+    })
+
+  }
+ // $scope.bring();
 
 });
