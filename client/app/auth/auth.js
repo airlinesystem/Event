@@ -27,8 +27,11 @@ angular.module('event.auth', [])
 
   $scope.OrgSignin= function(){
     var temp=$scope.org
+     console.log(temp,'im ORG')
     Auth.OrgSignin(temp)
     .then(function(token){
+           console.log(token,'im ORG')
+
       $window.localStorage.setItem('com.event', token);
       $location.path('/orgProfile')
     })
@@ -39,6 +42,7 @@ angular.module('event.auth', [])
 
   $scope.userSignup = function () {
     var temp=$scope.user
+    console.log(temp,'im user')
     Auth.userSignup(temp)
     .then(function (token) {
       $window.localStorage.setItem('com.event', token);
@@ -52,11 +56,12 @@ angular.module('event.auth', [])
 
   $scope.OrgnizerSignup = function () {
     var temp=$scope.org
-    console.log(temp)
+    console.log(temp,'im in auth')
     Auth.OrgSignup(temp)
     .then(function (token) {
-      $window.localStorage.setItem('com.event', token);
-      Auth.getOrgEvent($window.localStorage.getItem('com.event', token))
+
+      $window.localStorage.setItem('com.event', token);            
+      Auth.getOrgEvent($window.localStorage.getItem('com.event', token),'im back')
       $location.path('/orgProfile');
     })
     .catch(function (error) {
@@ -66,7 +71,9 @@ angular.module('event.auth', [])
 
   $scope.CreateEvent = function () {
     var temp=$scope.event
+    console.log(temp)
     temp.location2 = $window.localStorage.location2;
+    console.log($window.localStorage.getItem('com.event'),'im im')
     var tok =$window.localStorage.getItem('com.event')
     temp.tok = tok;   
     Auth.createEvent(temp)
@@ -102,15 +109,15 @@ angular.module('event.auth', [])
      $scope.why2.events = data;
    })
   } 
-   $scope.getsom = function(type){
+  $scope.getsom = function(type){
     Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
-        $scope.why2.events = [];
+      $scope.why2.events = [];
       for(var i= 0; i< data.length; i++){
-      if(type === data[i]['type']){
-        $scope.why2.events.push(data[i])
-      } 
+        if(type === data[i]['type']){
+          $scope.why2.events.push(data[i])
+        } 
       }
-    
+
 
     })
 
