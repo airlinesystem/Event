@@ -97,7 +97,6 @@ getAllEventUser : function(req,res){
     Events.reset().fetch().then(function(events){
       var UserEvents=[];
       for(var i=0;i<events.models.length;i++){
-       
           UserEvents.push(events.models[i].attributes);
       }
       res.json(UserEvents)
