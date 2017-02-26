@@ -1,120 +1,120 @@
-angular.module('event.auth', [])
+angular.module("event.auth", [])
 
-.controller('AuthController', function ($scope, $window, $location, Auth) {
+.controller("AuthController", function ($scope, $window, $location, Auth) {
 
-  $scope.user = {};
-  $scope.org = {};
-  $scope.event = {};
-  $scope.why ={}
-  $scope.why2 ={};
-  $scope.eventType =["Music","Tech","Sport","Art","Culture"];
+	$scope.user = {}
+	$scope.org = {}
+	$scope.event = {}
+	$scope.why ={}
+	$scope.why2 ={}
+	$scope.eventType =["Music","Tech","Sport","Art","Culture"]
 
-  $scope.logout = function () {
-    Auth.signout()
-  };
+	$scope.logout = function () {
+		Auth.signout()
+	}
 
-  $scope.userSignin = function () {
-    var temp=$scope.user
-    Auth.userSignin(temp)
+	$scope.userSignin = function () {
+		var temp=$scope.user
+		Auth.userSignin(temp)
     .then(function (token) {
-      $window.localStorage.setItem('com.event', token);
-      $location.path('/userProfile');
-    })
+	$window.localStorage.setItem("com.event", token)
+	$location.path("/userProfile")
+})
     .catch(function (error) {
-      console.error(error);
-    });
-  };
+	console.error(error)
+})
+	}
 
-  $scope.OrgSignin= function(){
-    var temp=$scope.org
-    Auth.OrgSignin(temp)
+	$scope.OrgSignin= function(){
+		var temp=$scope.org
+		Auth.OrgSignin(temp)
     .then(function(token){
-      $window.localStorage.setItem('com.event', token);
-      $location.path('/orgProfile')
-    })
+	$window.localStorage.setItem("com.event", token)
+	$location.path("/orgProfile")
+})
     .catch(function (error) {
-      console.error(error);
-    });
-  }
+	console.error(error)
+})
+	}
 
-  $scope.userSignup = function () {
-    var temp=$scope.user
-    Auth.userSignup(temp)
+	$scope.userSignup = function () {
+		var temp=$scope.user
+		Auth.userSignup(temp)
     .then(function (token) {
-      $window.localStorage.setItem('com.event', token);
-      Auth.getUserEvent($window.localStorage.getItem('com.event', token));
-      $location.path('/userProfile');
-    })
+	$window.localStorage.setItem("com.event", token)
+	Auth.getUserEvent($window.localStorage.getItem("com.event", token))
+	$location.path("/userProfile")
+})
     .catch(function (error) {
-      console.error(error);
-    });
-  };
+	console.error(error)
+})
+	}
 
-  $scope.OrgnizerSignup = function () {
-    var temp=$scope.org
-    console.log(temp)
-    Auth.OrgSignup(temp)
+	$scope.OrgnizerSignup = function () {
+		var temp=$scope.org
+		console.log(temp)
+		Auth.OrgSignup(temp)
     .then(function (token) {
-      $window.localStorage.setItem('com.event', token);
-      Auth.getOrgEvent($window.localStorage.getItem('com.event', token))
-      $location.path('/orgProfile');
-    })
+	$window.localStorage.setItem("com.event", token)
+	Auth.getOrgEvent($window.localStorage.getItem("com.event", token))
+	$location.path("/orgProfile")
+})
     .catch(function (error) {
-      console.error(error);
-    });
-  };
+	console.error(error)
+})
+	}
 
-  $scope.CreateEvent = function () {
-    var temp=$scope.event
-    temp.location2 = $window.localStorage.location2;
-    var tok =$window.localStorage.getItem('com.event')
-    temp.tok = tok;   
-    Auth.createEvent(temp)
+	$scope.CreateEvent = function () {
+		var temp=$scope.event
+		temp.location2 = $window.localStorage.location2
+		var tok =$window.localStorage.getItem("com.event")
+		temp.tok = tok   
+		Auth.createEvent(temp)
     .then(function () {
-      $location.path('/orgProfile');
-      $scope.bring();
-    })
+	$location.path("/orgProfile")
+	$scope.bring()
+})
     .catch(function (error) {
-      console.error(error);
-    });
-  };
+	console.error(error)
+})
+	}
 
-  $scope.maps= function(location, id) {
-    location = location.split(',')
-    var amman = { lat: parseFloat(location[0].substr(1)), lng: parseFloat(location[1].substr(0, location[1].length-1)) };
-    var map = new google.maps.Map(document.getElementById(id), {
-      zoom: 15,
-      center: amman
-    });
-    var marker = new google.maps.Marker({
-      position: amman,
-      map: map,
-      title: 'Hello World!'
-    });
-  }
+	$scope.maps= function(location, id) {
+		location = location.split(",")
+		var amman = { lat: parseFloat(location[0].substr(1)), lng: parseFloat(location[1].substr(0, location[1].length-1)) }
+		var map = new google.maps.Map(document.getElementById(id), {
+			zoom: 15,
+			center: amman
+		})
+		var marker = new google.maps.Marker({
+			position: amman,
+			map: map,
+			title: "Hello World!"
+		})
+	}
   
-  $scope.bring=function(){
-    Auth.getOrgEvent($window.localStorage.getItem('com.event')).then(function (data) {
-     $scope.why.events = data;
-   })
+	$scope.bring=function(){
+		Auth.getOrgEvent($window.localStorage.getItem("com.event")).then(function (data) {
+			$scope.why.events = data
+		})
     
-    Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
-     $scope.why2.events = data;
-   })
-  }
-    $scope.getsom = function(type){
-    Auth.getUserEvent($window.localStorage.getItem('com.event')).then(function (data) {
-      $scope.why2.events = [];
-      for(var i= 0; i< data.length; i++){
-        if(type === data[i]['type']){
-          $scope.why2.events.push(data[i])
-        } 
-      }
+		Auth.getUserEvent($window.localStorage.getItem("com.event")).then(function (data) {
+			$scope.why2.events = data
+		})
+	}
+	$scope.getsom = function(type){
+		Auth.getUserEvent($window.localStorage.getItem("com.event")).then(function (data) {
+			$scope.why2.events = []
+			for(var i= 0; i< data.length; i++){
+				if(type === data[i]["type"]){
+					$scope.why2.events.push(data[i])
+				} 
+			}
 
 
-    })
+		})
 
-  }
+	}
   //$scope.bring();
 
-});
+})

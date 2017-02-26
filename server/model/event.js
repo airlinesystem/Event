@@ -1,20 +1,20 @@
-var db = require('../config-db');
+var db = require("../config-db")
 
-var knex = require('knex');
+var knex = require("knex")
 
 
 var Event = db.Model.extend({
-	tableName: 'events',
+	tableName: "events",
 	hasTimestamps: true,
 
 	organizer: function() {
-    return this.belongsTo(Organizer,'organizerId');
-  },
+		return this.belongsTo(Organizer,"organizerId")
+	},
 
 	
-});
+})
 
-module.exports = Event;
+module.exports = Event
 
 
 
