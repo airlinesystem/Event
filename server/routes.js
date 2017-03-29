@@ -9,8 +9,6 @@ app.post('/api/orgProfile', eventController.addEvent);
 app.post('/api/userSignin', userController.signin);
 app.post('/api/orgSignin', organizerController.signin);
 
-
-
 app.get('/api/orgProfile', eventController.getAllEventOrg);
 app.get('/api/userProfile', eventController.getAllEventUser)
 }

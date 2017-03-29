@@ -1,7 +1,7 @@
 <div id="page">	
 	<div class="page-inner">
 		<nav class="gtco-nav" role="navigation"></nav>
-		<!-- <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(app/auth/images/img_4.jpg)"> -->
+		<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(app/auth/images/img_4.jpg)">
 			<div class="overlay"></div>
 			<div class="gtco-container">
 				<div class="row">
@@ -23,7 +23,7 @@
 												<form action="#">
 													<div class="row form-group">
 														<div class="col-md-12">
-													<!-- 		<label for="username">Email</label>
+															<label for="username">Email</label>
 															<input type="text" class="form-control" id="username" ng-model='org.email' required>
 														</div>
 													</div>
@@ -43,7 +43,7 @@
 													</div>
 												</form>	
 											</div>
- -->
+
 											<div class="tab-content-inner" data-content="login">
 												<form action="#">
 													<div class="row form-group">
@@ -99,57 +99,3 @@
 			<script src="app/auth/js/magnific-popup-options.js"></script>
 			<!-- Main -->
 			<script src="app/auth/js/main.js"></script>
-
-
-
-
-
-			<div class="container">
-  <h2>Modal Login Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form"  ng-click="OrgSignin()">
-          <!--   <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div> -->
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Email</label>
-              <input type="text" class="form-control" id="emi" placeholder="Email"  ng-model='org.email'>
-            </div>
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password" ng-model='org.password'>
-            </div>
-       
-              <a type="submit" type="button" href="#/orgProfile" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</a>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#/OrgSignup">Sign Up</a></p>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
-</div>
- <script>
-  $(document).ready(function(){
-    $("#myBtn").click(function(){
-      $("#myModal").modal();
-    });
-  });
-</script>
