@@ -1,11 +1,11 @@
-var db = require('../config-db');
+var db = require("../config-db")
 
-var knex = require('knex');
+var knex = require("knex")
 
 var User = db.Model.extend({
-	tableName: 'users',
+	tableName: "users",
 	hasTimestamps: true,
 	
-});
+})
 
-module.exports = User;
+module.exports = User
